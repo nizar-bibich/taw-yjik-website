@@ -68,15 +68,11 @@ function drawTimes() {
     .join("");
 }
 function pct(o) {
-  return o.status === "ready" || o.status === "picked-up"
+  return o.status === "ready"
     ? 100
-    : Math.min(
-        100,
-        Math.max(0, 100 - ((o.readyAt - Date.now()) / o.total) * 100),
-      );
+    : Math.min(100, Math.max(0, 100 - ((o.readyAt - Date.now()) / o.total) * 100));
 }
 function remainingTime(o) {
-  if (o.status === "picked-up") return "تم التسليم";
   if (o.status === "ready") return "جاهز";
   var difference = o.readyAt - Date.now(),
     seconds = Math.ceil(Math.abs(difference) / 1000),
@@ -90,11 +86,7 @@ function renderOrderRows(ids, emptyMessage) {
   if (!ids.length) return '<div class="list-empty">' + emptyMessage + "</div>";
   return ids
     .map(function (k) {
-      var o = orders[k],
-        action =
-          o.status === "ready"
-            ? '<button class="rd delivered" data-delivered="' + k + '">تم التسليم</button>'
-            : '<button class="rd" data-rd="' + k + '">جاهز</button>';
+      var o = orders[k];
       return (
         '<div class="row" data-k="' +
         k +
@@ -106,8 +98,9 @@ function renderOrderRows(ids, emptyMessage) {
         (o.status === "ready" ? " done" : isLate(o) ? " late" : "") +
         '">' +
         remainingTime(o) +
-        "</span>" +
-        action +
+        '</span><button class="rd" data-rd="' +
+        k +
+        '">جاهز</button>' +
         '</div>' +
         (o.status === "prep"
           ? '<div class="row-extra"><span class="delay-indicator"' +
@@ -134,20 +127,15 @@ function renderList() {
     waitingIds = ids.filter(function (k) {
       return orders[k].status === "prep";
     }),
-    readyIds = ids.filter(function (k) {
-      return orders[k].status === "ready";
-    }),
     s = ids
       .map(function (k) {
         return k + orders[k].status;
       })
       .join();
   $("waitingCount").textContent = waitingIds.length;
-  $("readyCount").textContent = readyIds.length;
   if (s !== sig) {
     sig = s;
     $("waitingList").innerHTML = renderOrderRows(waitingIds, "لا توجد طلبات في الانتظار");
-    $("readyList").innerHTML = renderOrderRows(readyIds, "لا توجد طلبات جاهزة للاستلام");
   } else {
     $("waitingList").querySelectorAll(".row").forEach(function (r) {
       var o = orders[r.dataset.k];
@@ -178,23 +166,6 @@ function renderCust() {
       box.innerHTML =
         "<p>رقم الطلب غير موجود. أضِف الطلب أولًا من شاشة الموظف.</p>" + back;
       shown = "nf";
-    }
-    return;
-  }
-  if (o.status === "picked-up") {
-    if (shown !== "pk" + k) {
-      box.innerHTML =
-          '<div class="rating-screen"><span class="rating-kicker">تم استلام الطلب ' +
-          k +
-          '</span><b>كيف كانت تجربتك؟</b><p>قيّم تجربتك على Google</p><div class="rating-stars" role="group" aria-label="اختر تقييمك بالنجوم">' +
-          [1, 2, 3, 4, 5]
-            .map(function (rating) {
-              return '<button class="rating-star" type="button" data-rating="' + rating + '" aria-label="' + rating + ' من 5" aria-pressed="false">★</button>';
-            })
-            .join("") +
-          '</div><span class="rating-note" id="ratingNote" aria-live="polite">اختر عدد النجوم</span><small>معاينة التقييم</small></div>' +
-        back;
-      shown = "pk" + k;
     }
     return;
   }
@@ -233,15 +204,7 @@ function renderCust() {
 document.addEventListener("click", function (e) {
   var el = e.target.closest("button");
   if (!el) return;
-    if (el.dataset.rating) {
-      var selectedRating = Number(el.dataset.rating);
-      document.querySelectorAll(".rating-star").forEach(function (star) {
-        var selected = Number(star.dataset.rating) <= selectedRating;
-        star.classList.toggle("selected", selected);
-        star.setAttribute("aria-pressed", String(Number(star.dataset.rating) === selectedRating));
-      });
-      $("ratingNote").textContent = "اخترت " + selectedRating + " من 5 نجوم";
-    } else if (el.dataset.m) {
+  if (el.dataset.m) {
     mins = +el.dataset.m;
     drawTimes();
   } else if (el.id === "add") {
@@ -250,7 +213,7 @@ document.addEventListener("click", function (e) {
       $("sNum").focus();
       return;
     }
-    if (orders[n] && orders[n].status !== "picked-up") {
+    if (orders[n]) {
       $("staffMessage").textContent = "رقم الطلب موجود بالفعل في قائمة الطلبات النشطة.";
       return;
     }
@@ -281,11 +244,6 @@ document.addEventListener("click", function (e) {
       safe(beep);
       lastR = true;
     }
-    sig = "";
-    renderList();
-    renderCust();
-  } else if (el.dataset.delivered) {
-    orders[el.dataset.delivered].status = "picked-up";
     sig = "";
     renderList();
     renderCust();

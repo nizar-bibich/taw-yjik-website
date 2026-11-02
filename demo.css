@@ -421,10 +421,6 @@ input:focus {
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
-.ready-count {
-  color: #b7f4df;
-  background: rgba(83, 224, 178, 0.14);
-}
 .list-empty {
   padding: 11px 12px;
   color: var(--mut);
@@ -602,63 +598,6 @@ input:focus {
   font-size: 23px;
   margin: 6px 0;
 }
-  .rating-screen {
-    display: grid;
-    justify-items: center;
-    gap: 8px;
-    padding: 20px 10px 16px;
-    text-align: center;
-  }
-  .rating-kicker {
-    color: #b7f4df;
-    font-size: 13px;
-    font-weight: 800;
-  }
-  .rating-screen > b {
-    font-size: 21px;
-  }
-  .rating-screen p {
-    margin: 0;
-    color: var(--mut);
-    font-size: 14px;
-  }
-  .rating-stars {
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-    direction: ltr;
-    margin: 4px 0;
-  }
-  .rating-star {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 25px;
-    cursor: pointer;
-    transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-  }
-  .rating-star:hover,
-  .rating-star.selected {
-    color: #ffd166;
-    background: rgba(255, 209, 102, 0.12);
-    transform: translateY(-2px);
-  }
-  .rating-note {
-    min-height: 22px;
-    color: #e6e1ff;
-    font-size: 13px;
-    font-weight: 700;
-  }
-  .rating-screen small {
-    color: var(--mut);
-    font-size: 11px;
-  }
 .hide {
   display: none !important;
 }
