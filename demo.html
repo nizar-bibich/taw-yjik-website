@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جرّب توا يجيك</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<a class="top" href="index.html" style="text-decoration:none"><img class="demo-logo" src="logo.png" alt="توا يجيك"><span class="top-back">العودة إلى الموقع <b aria-hidden="true">←</b></span></a>
+<div class="wrap">
+ <div class="intro"><span class="eyebrow"><i></i> عرض تفاعلي مباشر</span><h1>جرّب بنفسك، <span>من غير تسجيل</span></h1><p>شاهد كيف يتابع الزبون طلبه لحظة بلحظة، وكيف يدير الموظف الطلبات من شاشة واحدة.</p></div>
+ <div class="how" aria-label="خطوات التجربة"><span><b>1</b> الموظف يضيف رقم الطلب ويحدّد وقت التحضير</span><span><b>2</b> الزبون يدخل رقم طلبه ليتابع الوقت</span><span><b>3</b> بعد التحضير، الموظف يضغط «جاهز»</span><span><b>4</b> بعد تسليم الطلب، الموظف يضغط «تم التسليم»</span></div>
+ <div class="cols">
+  <div class="card staff-card"><div class="card-head"><div><span class="lbl">شاشة الموظف</span><h2>إدارة الطلبات</h2></div><span class="live"><i></i> مباشر</span></div>
+    <input type="tel" inputmode="numeric" id="sNum" maxlength="6" placeholder="مثال: 123">
+    <div class="staff-message" id="staffMessage" aria-live="polite"></div>
+   <div class="mut">مدّة التحضير (دقيقة)</div>
+   <div class="times" id="times"></div>
+   <button class="big" id="add">أضف الطلب</button>
+  <div class="order-groups">
+   <section class="order-group" aria-labelledby="waitingTitle">
+    <div class="order-group-head"><h3 id="waitingTitle">في الانتظار</h3><span class="queue-count" id="waitingCount">0</span></div>
+    <div class="order-list" id="waitingList"><div class="list-empty">لا توجد طلبات في الانتظار</div></div>
+   </section>
+   <section class="order-group" aria-labelledby="readyTitle">
+    <div class="order-group-head"><h3 id="readyTitle">جاهزة للاستلام</h3><span class="queue-count ready-count" id="readyCount">0</span></div>
+    <div class="order-list" id="readyList"><div class="list-empty">لا توجد طلبات جاهزة للاستلام</div></div>
+   </section>
+  </div>
+  </div>
+  <div class="card ph"><div class="card-head"><div><span class="lbl">هاتف الزبون</span><h2>متابعة الطلب</h2></div><span class="phone-signal" aria-label="متصل"><i></i><i></i><i></i></span></div>
+    <div id="cIn"><b>اكتب نفس رقم الطلب</b><input type="tel" inputmode="numeric" id="cNum" maxlength="6" placeholder="مثال: 123"><button class="big" id="track">تتبّع</button></div>
+   <div id="cOut" class="hide"></div>
+  </div>
+ </div>
+ <div class="foot"><span>جاهز لتجربتها في محلّك؟</span><a href="https://wa.me/21625193066" target="_blank" rel="noopener">كلّمنا على واتساب <b>25193066</b></a></div>
+</div>
+<script src="demo.js"></script>
+</body>
+</html>

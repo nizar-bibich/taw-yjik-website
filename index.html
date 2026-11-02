@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>توا يجيك | نظام متابعة الطلبات الذكي</title>
+  <meta name="description" content="توا يجيك يساعد المقاهي والمطاعم على تسجيل الطلبات ومتابعة وقت الجاهزية عبر الهاتف.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+  <div class="stage" id="stage">
+    <canvas id="fx"></canvas>
+  </div>
+
+  <div class="topbar" id="topbar">
+    <div class="nav container">
+      <div class="nav-brand" aria-label="توا يجيك">
+        <img class="brand-logo" src="logo.png" alt="توا يجيك" />
+      </div>
+
+      <nav class="nav-group" aria-label="التنقل بين الأقسام">
+        <a href="#how">كيف يعمل</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="btn btn-primary btn-sm" href="https://wa.me/21625193066" target="_blank" rel="noopener">تواصل معنا</a>
+      </div>
+    </div>
+
+    <div class="nav-panel" id="mobileMenu" aria-label="قائمة التنقل السريعة">
+      <nav class="nav-panel-group" aria-label="قائمة الهاتف">
+        <a href="#how">كيف يعمل</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="txt">
+      <h1>خلّي زبونك يعرف<br><span class="gt">وقتاش طلبو يجهز.</span></h1>
+      <div class="btns">
+        <a class="btn btn-primary" href="demo.html">جرّب العرض</a>
+        <a class="btn btn-secondary" href="#how">كيف يعمل؟</a>
+      </div>
+    </div>
+
+    <div class="orb">
+      <div class="ph">
+        <small>طلب رقم 112</small>
+        <div class="rg">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="gr" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#D946EF"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="9"/>
+            <circle class="b" cx="50" cy="50" r="42" fill="none" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+          <b>4:32</b>
+        </div>
+        <div class="ok"><span class="notify-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 17h4l-1.2-1.6A3.5 3.5 0 0 1 17 13.7V10a5 5 0 1 0-10 0v3.7a3.5 3.5 0 0 1-.8 1.7L5 17h4m6 0a3 3 0 0 1-6 0M12 3v2"/></svg></span>كوموندك جاهزة!</div>
+      </div>
+
+      <div class="chip c1">قيد التحضير</div>
+      <div class="chip c2">الوقت المتبقي</div>
+      <div class="chip c3">جاهز</div>
+    </div>
+  </header>
+
+  <main class="sections">
+    <section class="container product-intro" aria-labelledby="productIntroTitle">
+      <div class="product-intro-card">
+        <span class="mini-tag">شنوّة هو توا يجيك؟</span>
+        <h2 id="productIntroTitle">متابعة الطلبات من غير ما الزبون يرجع يسأل</h2>
+        <p>توا يجيك نظام للمقاهي والمطاعم: الموظف يسجّل الطلب ووقت التحضير، والزبون يمسح رمز QR ويدخل رقم الطلب باش يتابع حالتو من تليفونو.</p>
+      </div>
+    </section>
+
+    <section id="how" class="container">
+      <div class="section-head">
+        <h2>كيف يعمل؟</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="card flow-step" data-step="01">
+          <h3>الموظف يسجّل الطلب</h3>
+          <p>يدخل رقم الطلب ويحدّد وقت التحضير من لوحة الطلبات.</p>
+        </div>
+
+        <div class="card flow-step" data-step="02">
+          <h3>الزبون يتابع من تليفونو</h3>
+          <p>يمسح رمز QR ويدخل رقم الطلب باش يشوف الوقت المتبقي.</p>
+        </div>
+
+        <div class="card flow-step" data-step="03">
+          <h3>الموظف يعلّم الطلب جاهز</h3>
+          <p>تتحدّث حالة الطلب، ويعرف الزبون وقتاش يمشي يستلمو.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="container pricing-section">
+      <div class="section-head">
+        <h2>أسعار واضحة</h2>
+        <p>اختار الاشتراك اللي يناسبك.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <h3>اشتراك شهري</h3>
+          <p class="price"><strong>30</strong> د.ت <span>/ شهر</span></p>
+          <p class="pricing-note">تخلّص شهر بشهر.</p>
+        </article>
+
+        <article class="pricing-card pricing-card-featured">
+          <span class="pricing-badge">شهرين مجانًا</span>
+          <h3>اشتراك سنوي</h3>
+          <p class="price"><strong>300</strong> د.ت <span>/ سنة</span></p>
+          <p class="pricing-note">12 شهر بسعر 10 أشهر — توفّر 60 د.ت.</p>
+        </article>
+      </div>
+
+      <div class="cta-actions" id="contact">
+        <a class="btn btn-primary" href="https://wa.me/21625193066" target="_blank" rel="noopener">كلّمنا على واتساب</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    توا يجيك • متابعة الطلبات للمقاهي والمطاعم
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var cv = document.getElementById('fx');
+      var cx = cv.getContext('2d');
+      var st = document.getElementById('stage');
+      var IW = 1456, IH = 732, PX = .22, W = 0, H = 0, s = 1, ox = 0, oy = 0;
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var nodes = [
+        [409, 91, '#b78cff'], [610, 175, '#5ef0ff'], [258, 298, '#5ef0ff'], [599, 287, '#5ef0ff'],
+        [711, 294, '#c9a8ff'], [541, 413, '#5ef0ff'], [413, 315, '#b78cff'], [175, 342, '#e070ff'],
+        [215, 432, '#5ef0ff'], [678, 489, '#b78cff'], [120, 580, '#6aa8ff'], [257, 575, '#5ef0ff'],
+        [397, 641, '#5ef0ff'], [430, 706, '#b78cff'], [540, 655, '#5ef0ff'], [192, 533, '#c08bff'], [424, 408, '#8fd8ff']
+      ];
+      var ph = nodes.map(function () { return Math.random() * 6.28; });
+      var sp = nodes.map(function () { return .6 + Math.random() * 1.4; });
+      var dust = [];
+      for (var i = 0; i < 60; i++) {
+        dust.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.4 + .4, v: Math.random() * .012 + .003, a: Math.random() * 6.28 });
+      }
+
+      function size() {
+        W = st.clientWidth;
+        H = st.clientHeight;
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        s = Math.max(W / IW, H / IH);
+        ox = (W - IW * s) * PX;
+        oy = (H - IH * s) / 2;
+      }
+
+      size();
+      window.addEventListener('resize', size);
+
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function glow(x, y, r, c, a) {
+        var g = cx.createRadialGradient(x, y, 0, x, y, r);
+        g.addColorStop(0, c);
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        cx.globalAlpha = a;
+        cx.fillStyle = g;
+        cx.beginPath();
+        cx.arc(x, y, r, 0, 6.283);
+        cx.fill();
+      }
+
+      function frame(t) {
+        t /= 1000;
+        cx.clearRect(0, 0, W, H);
+
+        nodes.forEach(function (n, i) {
+          var k = .5 + .5 * Math.sin(t * sp[i] + ph[i]);
+          var x = n[0] * s + ox;
+          var y = n[1] * s + oy;
+
+          glow(x, y, (14 + 16 * k) * s, n[2], .25 + .5 * k);
+          cx.globalAlpha = .6 + .4 * k;
+          cx.fillStyle = '#fff';
+          cx.beginPath();
+          cx.arc(x, y, 1.3 + k * .9, 0, 6.283);
+          cx.fill();
+
+          if (k > .8) {
+            cx.globalAlpha = (k - .8) * 3;
+            cx.strokeStyle = n[2];
+            cx.lineWidth = 1;
+            var L = (8 + 10 * k) * s;
+            cx.beginPath();
+            cx.moveTo(x - L, y);
+            cx.lineTo(x + L, y);
+            cx.moveTo(x, y - L);
+            cx.lineTo(x, y + L);
+            cx.stroke();
+          }
+        });
+
+        dust.forEach(function (d) {
+          if (!reduced) {
+            d.y -= d.v * .016;
+            d.x += Math.sin(t * .4 + d.a) * .0002;
+            if (d.y < 0) {
+              d.y = 1;
+              d.x = Math.random();
+            }
+          }
+          cx.globalAlpha = .25 + .45 * (.5 + .5 * Math.sin(t * 1.2 + d.a));
+          cx.fillStyle = '#bcd8ff';
+          cx.beginPath();
+          cx.arc(d.x * W, d.y * H, d.r, 0, 6.283);
+          cx.fill();
+        });
+
+        cx.globalAlpha = 1;
+        if (!reduced) requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+
+      if (!reduced) {
+        var tx = 0, ty = 0;
+        function mv(x, y) {
+          tx = (x / innerWidth - .5) * -14;
+          ty = (y / innerHeight - .5) * -10;
+          st.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(1.01)';
+        }
+        addEventListener('mousemove', function (e) { mv(e.clientX, e.clientY); });
+        addEventListener('touchmove', function (e) { var q = e.touches[0]; mv(q.clientX, q.clientY); }, { passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>
